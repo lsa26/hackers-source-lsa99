@@ -1,0 +1,15 @@
+  apiVersion: automation.cloudbees.io/v1alpha1
+  kind: workflow
+  name: hello-tekton
+  on:
+    workflow_dispatch:
+  jobs:
+    hello:
+      steps:
+        - name: Say hello
+          uses: docker://alpine:latest
+          shell: sh
+          run: |
+            echo "Hello from CloudBees Unify"
+            echo "Tekton engine is working!"
+            date
